@@ -1,11 +1,4 @@
-{% include 'partials/_header.html.twig' %}
-
-	<main class="main">
-
-		<h1 class="main-title">Tous les cocktails</h1>
-
-
-		<div class="recipes-list-container">
+<div class="recipes-list-container">
 
 			{% for cocktail in cocktails %}
 
@@ -19,7 +12,3 @@
 
 			{% endfor %}
 		</div>
-
-	</main>
-
-{% include 'partials/footer.html.twig' %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class CocktailsController extends AbstractController {
 
@@ -15,7 +16,7 @@ class CocktailsController extends AbstractController {
 			1 => [
 				'id'            => 1,
 				'nom'           => 'Mojito',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg', // photo libre de droits
+				'image'         => 'https://bing.com/th?id=OSK.5fccfa5f549b62804402753aec91a46e', 
 				'ingredients'   => [
 					'50 ml de rhum blanc',
 					'½ citron vert (en quartiers)',
@@ -31,7 +32,7 @@ class CocktailsController extends AbstractController {
 			2 => [
 				'id'            => 2,
 				'nom'           => 'Margarita',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg',
+				'image'         => 'https://bing.com/th?id=OSK.dd09e4a7143edcdb8ea30a1df9c44e84',
 				'ingredients'   => [
 					'50 ml de tequila',
 					'25 ml de triple sec (Cointreau)',
@@ -46,7 +47,7 @@ class CocktailsController extends AbstractController {
 			3 => [
 				'id'            => 3,
 				'nom'           => 'Old Fashioned',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg',
+				'image'         => 'https://th.bing.com/th/id/OIP.tKeeAkYTWlCKwic2Sr63-QHaE8?w=267&h=200&c=12&rs=1&p=0&o=6&dpr=1.3&pid=23.1',
 				'ingredients'   => [
 					'60 ml de bourbon ou rye whisky',
 					'1 morceau de sucre',
@@ -61,7 +62,7 @@ class CocktailsController extends AbstractController {
 			4 => [
 				'id'            => 4,
 				'nom'           => 'Piña Colada',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg',
+				'image'         => 'https://bing.com/th?id=OSK.67c9216b47785da5cba48829052b23b7',
 				'ingredients'   => [
 					'60 ml de rhum blanc',
 					'90 ml de jus d’ananas',
@@ -75,7 +76,7 @@ class CocktailsController extends AbstractController {
 			5 => [
 				'id'            => 5,
 				'nom'           => 'Negroni',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg',
+				'image'         => 'https://th.bing.com/th/id/OIP.zmkaxId21-n3DtxHKoA05AHaE8?rs=1&pid=ImgDetMain',
 				'ingredients'   => [
 					'30 ml de gin',
 					'30 ml de vermouth rouge',
@@ -93,14 +94,15 @@ class CocktailsController extends AbstractController {
 	}
 
 
-	#[Route('/single-cocktail', name: "single-cocktail")]
-	public function displaySingleCocktails() {
+	#[Route('/single-cocktail/{id}', name: "single-cocktail")]
+	
+	public function displaySingleCocktails($id){
 
 		$cocktails = [
 			1 => [
 				'id'            => 1,
 				'nom'           => 'Mojito',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg', // photo libre de droits
+				'image'         => 'https://bing.com/th?id=OSK.bf0164bc3d77bbd12902ad17ef2f04eb', // photo libre de droits
 				'ingredients'   => [
 					'50 ml de rhum blanc',
 					'½ citron vert (en quartiers)',
@@ -160,7 +162,7 @@ class CocktailsController extends AbstractController {
 			5 => [
 				'id'            => 5,
 				'nom'           => 'Negroni',
-				'image'         => 'https://www.c6bo-plongee.fr/wp-content/uploads/2024/10/c6bo-voyage-blog-plongee-recettes-meilleurs-cocktails-Mai-Tai-steven-miller.jpg',
+				'image'         => 'https://thaka.bing.com/th/id/OIP.Wb5AgJhbS8rAoL3cP-9YAwHaE8?w=269&h=200&c=12&rs=1&p=0&o=6&dpr=1.3&pid=23.1',
 				'ingredients'   => [
 					'30 ml de gin',
 					'30 ml de vermouth rouge',
@@ -173,13 +175,13 @@ class CocktailsController extends AbstractController {
 			],
 		];
 
-		$cocktailId = $_GET['id'];
-
-		$cocktail = $cocktails[$cocktailId];
+			
+		$cocktail = $cocktails[$id];
 
 		return $this->render('single-cocktail.html.twig', [
 			'cocktail' => $cocktail
 		]);
+
 
 	}
 
