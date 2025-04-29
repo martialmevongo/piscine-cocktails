@@ -1,14 +1,44 @@
-{# includ le fichier header #}
-{% include 'partials/_header.html.twig' %}
 
-{# ajoute le fichier aside contenant la parre lateral de pub sur la page#}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block metatitle %}{% endblock metatitle %}</title>
+	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
+
+</head>
+<body>
+
+	<header class="header">
+
+		<a href="{{ path('home') }}">
+			<img class="logo-header" src="{{ asset('assets/img/logo.jpg') }}" alt="logo recettes" />
+		</a>
+
+		<nav class="nav-header">
+
+			<ul class="nav-menu">
+
+				<li><a href="{{ path('home') }}">Accueil</a></li>
+				<li><a href="{{ path('list-cocktails') }}">Liste des cocktails</a></li>
+			</ul>
+
+
+		</nav>
+
+	</header>
+
 {% include 'partials/_aside-ad.html.twig' %}
 
-{# definit le contenu du main #}
+<main class="main">
+
 {% block main %}
 
-{# fini la fin du contenu de main#}
+
 {% endblock main %}
 
-{#le ficher footer contenant le fin de mon site#}  
+
+</main>
+
+
+
 {% include 'partials/footer.html.twig' %}
