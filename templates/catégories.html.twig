@@ -1,20 +1,21 @@
-{#extends recupère le fichier de base html#}
 {% extends 'base.html.twig' %}
 
-{# definit le contenu du main #}
-{% block main %}
+{% block metatitle %}
+	Les catégories de cocktails
+{% endblock metatitle %}
 
-	<h1>Liste des catégories de cocktails</h1>
 
-    {% for category in categories %}
-        <div class="category">
-            <h2>{{ category.nom|capitalize }}</h2>
-            <p><strong>ID :</strong> {{ category.id }}</p>
-            <p><strong>Description :</strong> {{ category.description }}</p>
-        </div>
-    {% else %}
-        <p>Aucune catégorie disponible.</p>
-    {% endfor %}
+{% block main %} 
 
-{# definit la fin du contenu du bloc main#}
+	{% for category in categories %}
+
+	<article>
+
+		<h2>{{category.nom}}</h2>
+		<p>{{category.description}}</p>
+
+	</article>
+
+	{% endfor %}
+
 {% endblock main %}
